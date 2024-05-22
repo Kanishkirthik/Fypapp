@@ -1,38 +1,515 @@
-.App {
+.nav-ul{
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  gap:30px;
+  padding: 0;
+  align-items: center;
+  min-height: 50px;
+  height: auto;
+  margin: 0px;
+  justify-content: end;
+}
+.li-nav{
+  list-style: none;
+}
+.li-nav:hover{
+  border-bottom: 4px solid #081158;
+  cursor: pointer;
+}
+.nav{
+  margin: 0;
+  position: sticky;
+  top: 0;
+  background-color: #eef0f4;
+  color: #081158;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow:  0px 0px 5px #1748a8;
+}
+.logo{
+  position: absolute;
+  left:150px;
+  font-style: italic;
+  font-size: 100;
+}
+.footer{
+  font-family: 'Times New Roman', Times, serif;
+}
+.footer .card{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 30px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+}
+select{
+  border: none;
+  margin: 2px;
+}
+.login-row{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body{
+  background-color: #eef0f4;
+  margin-top: 0px;
+  margin: 0px;
+}
+input{
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.login-form{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  padding: 30px;
+  border-radius: 20px;
+ background-color:  #081158;color:#eef0f4 ;
+  width: 300px;
+
+}
+.login{
+  height: 50px;
+  width: 100%;
+  border-radius: 50px;
+  background-color: #eef0f4;
+  color:#081158;
+  border: none;
+}
+input:focus{
+  outline: none;
+
+}
+.dropdown{
+  position: relative;
+  
+}
+.drop-items{
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0; 
+  background-color: #081158;
+}
+.footer{
+  position: sticky;
+  bottom: 0;
+  margin-left: 15px;
+  margin-right: 15px;
+  box-shadow:  0px 0px 10px #081158;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.footer ul{
+  list-style: none;
+  color: #081158;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.footer .card-left li{
+  margin: 3px;
+}
+.footer .card-middle li{
+  margin: 3px;
+}
+
+.footer .title{
+  font-size: larger;
+  font-weight: bold;
+  font-style: italic;
+}
+.drop-items button{
+  font-family: 'Times New Roman', Times, serif;
+  border: none;
+  font-weight: bold;
+  padding: 10px;
+  font-weight: 400;
+  background-color: #081158;
+  color: #eef0f4;
+  width: auto
+  ;
+}
+.dropdown:hover .drop-items{
+  display: block;
+}
+.login_sig{
+  height: 50px;
+  border-radius: 50px;
+  background-color: #eef0f4;
+  color:#081158;
+  border: none;
+  font-size: medium;
+  font-weight: bold;
+}
+.home h3{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: capitalize;
+  font-style: italic;
+  color: #081158;
+}
+.search{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 5px;
+
+}
+.search input{
+  margin: 3px;
+  width: 400px;
+  height: 50px;
+  box-shadow: 0px 0px 5px #081158;
+}
+.search button{
+  width: 100px;
+
+  height: 50px;
+  border-radius: 10px;
+  background-color: #081158;
+  color: #eef0f4;
+  border: none;
+}
+
+.Up-Comming{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 15px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  border-radius: 50px;
+  
+}
+.Up-Comming .card{
+  margin: 15px;
+  width: 18rem;
+  background-color: #eef0f4;
+  color: #081158;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  padding: 2px;
+ 
+}
+.Up-Comming .card-body{
+  width: 100%;
+}
+.Up-Comming .card-body p{
+  font-size: medium;
+  font-weight: 400;
+  text-align: justify;
+  padding: 2px;
+}
+.Up-Comming .card-body .card-title{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bolder;
+
+}
+.Up-Comming .card .card-header img{
+  width: 100%;
+  border-radius:20px;
+}
+.Up-Comming .card .card-footer button{
+  width: 100px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #081158;
+  color: #eef0f4;
+  border: none;
+}
+.Up-Comming .card .card-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-self: start;
+  justify-content: center;
+  
+}
+.jobs{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 15px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  border-radius: 50px;
+  
+}
+.jobs .card{
+  margin: 15px;
+  width: 18rem;
+  background-color: #eef0f4;
+  color: #081158;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  padding: 2px;
+ 
+}
+.jobs .card-body{
+  width: 100%;
+}
+.jobs .card-body p{
+  font-size: medium;
+  font-weight: 400;
+  text-align: justify;
+  padding: 2px;
+}
+.jobs .card-body .card-title{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bolder;
+
+}
+.jobs .card .card-header img{
+  width: 100%;
+  border-radius:20px;
+}
+.jobs .card .card-footer button{
+  width: 100px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #081158;
+  color: #eef0f4;
+  border: none;
+}
+.jobs .card .card-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-self: start;
+  justify-content: center;
+  
+}
+.ses-card{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  
+}
+.ses-card .left img{
+  padding: 3px;
+  width: 100%;
+  max-height: 250px;
+}
+.ses-card .right{
+  max-width: 350px;
+  max-height: 240px;
+  background-color: #eef0f4;
+  color: #081158;
+  padding: 5px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+}
+.ses-card .right p{
+  text-align: justify;
+}
+.ses-card .right .meet-link{
+  text-align: end;
+}
+.Coding {
+  display: flex;
+  flex-flow: row wrap;
+  border-radius: 50px;
+  padding: 0;
+  margin: 20px;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+}
+.Coding .card{
+  width: 15rem;
+  margin: 55px;
+  max-height: 300px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  color: #081158;
+}
+.Coding .card .card-header img{
+  border-radius: 10px;
+  width: 100%;
+  height: 130px;
+  max-height: 100%;
+}
+.Coding .card .card-body .card-title{
+  color: #081158;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Coding .card .card-body{
+  padding: 3px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Coding .card .card-body p{
+  text-align: justify;
+  margin: 1px;
 }
+.Coding .card .card-footer p{
+  text-align: end;
+  padding: 5px;
+}
+.li-nav .Profile .pro_fic{
+  width: 50px;
+  height: 100%;
+}
+.li-nav .Profile .drop{
+  display: none;
+  position: absolute;
+  top: 100%;
+}
+.li-nav .Profile {
+  position: relative;
+  margin-right: 75px;
+}
+.li-nav .Profile:hover .drop{
+  display: block;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.li-nav .Profile .drop{
+  background-color: #eef0f4;
+  color: #081158;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  border-radius: 10px;
+
+
+}
+.li-nav .Profile .drop li{
+  list-style: none;
+  margin: 5px;
+  width: auto;
+  
+}
+.li-nav .Profile .drop ul{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: column wrap;
+  padding: 20px;
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+}
+.container{
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 50px;
+  padding: 10px;
+}
+.container h3{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: lighter;
+  color: #081158;
+  font-style: italic;
+}
+.container .card{
+  display: flex;
+  flex-flow: row wrap;
+  gap:10px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
+.container .card .Dash-btn{
 
-.App-link {
-  color: #61dafb;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #081158;
+  color: #eef0f4;
+  border: none;
+  
+
+
 }
+textarea{
+  border: none;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.container .card .Dash-btn:hover{
+  background-color: #eef0f4;
+  color: #081158;
+  border: 1px solid #081158;
+  transition: 0.5s;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.Dashboard .card{
+  display: flex;
+  flex-flow: column wrap;
+}
+.create button{
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #081158;
+  color: #eef0f4;
+  border: none;
+  margin-top: 10px;
+
+}
+.create{
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  padding: 30px;
+  border-radius: 20px;
+  width: 300px;
+  margin-top: 10px;
+}
+.create button:hover{
+  background-color: #eef0f4;
+  color: #081158;
+  border: 1px solid #081158;
+  transition: 0.5s;
+
+}
+.container .card2{
+  margin: 15px;
+  width: 18rem;
+  background-color: #eef0f4;
+  color: #081158;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(8,17,88,0.2);
+  padding: 2px;
+}
+.container .card2 .card-body{
+  width: 100%;
+}
+.container .card2 .card-body p{
+  font-size: medium;
+  font-weight: 400;
+  text-align: justify;
+  padding: 2px;
+}
+.container .card2 .card-body .card-title{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bolder;
+
+}
+.container .card2 .card-header img{
+  width: 100%;
+  border-radius:20px;
+}
+.container .card2 .card-footer button{
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #081158;
+  color: #eef0f4;
+  border: none;
+  margin: 3px;
+}
+.container .card2 .card-footer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-self: start;
+  justify-content: center;
+  
 }
