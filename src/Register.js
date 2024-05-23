@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import Nav from './Nav'
 function Register() {
   const navigate=useNavigate()
   const [name, setName] = useState('');
@@ -16,6 +17,8 @@ function Register() {
     }).catch((err)=>console.log(err))
   }
   return (
+    <>
+    <Nav/>
     <div className='login-row'>
     <form className='login-form' onSubmit={handlefunction}>
         <input type='text' placeholder='UserName' onChange={(e)=>setName(e.target.value)}></input>    
@@ -40,6 +43,7 @@ function Register() {
         <br></br>
     </form>
 </div>
+          </>
   );
 }
 
