@@ -18,9 +18,9 @@ function Nav() {
   return (
     <div className='nav'>
       <ul className='nav-ul'>
-    {width>425 && <p className='logo' onClick={()=>{
+    {width>425 ? <p className='logo' onClick={()=>{
           navigate('/')
-        }}>FYP</p>
+        }}>FYP</p>:null
 }
       
         <li className='li-nav'>
