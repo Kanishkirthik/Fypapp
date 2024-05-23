@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import { Cookies } from 'react-cookie'
 import p from './profile.png'
 import { Link ,useNavigate} from 'react-router-dom'
@@ -6,7 +6,7 @@ function Nav() {
   const cookies=new Cookies()
   let user=cookies.get('UserId')
   let navigate=useNavigate()
-  const [width,setwidth]=useState();
+  const [width,setwidth]=useState(0);
   useEffect(()=>{
     let handle=function(){
       setwidth(window.innerWidth)
