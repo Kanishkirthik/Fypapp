@@ -85,7 +85,7 @@ function Home() {
           ))}
         </div>
 }
-{data && <h3>Up-Coming Events</h3>}
+{user && <h3>Up-Coming Events</h3>}
         {data.map((e)=>(
         <div className='Up-Comming'>
                 <div className='card'>
