@@ -6,7 +6,7 @@ function Nav() {
   const cookies=new Cookies()
   let user=cookies.get('UserId')
   let navigate=useNavigate()
-  const [width,setwidth]=useState(0);
+  const [width,setwidth]=useState();
   useEffect(()=>{
     let handle=function(){
       setwidth(window.innerWidth)
