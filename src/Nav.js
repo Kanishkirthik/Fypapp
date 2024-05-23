@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Cookies } from 'react-cookie'
 import p from './profile.png'
 import { Link ,useNavigate} from 'react-router-dom'
@@ -6,13 +6,18 @@ function Nav() {
   const cookies=new Cookies()
   let user=cookies.get('UserId')
   let navigate=useNavigate()
+  const [hide,sethide]=useState();
+  if (window.innerWidth<988){
+    sethide(true)
+  }
 
   return (
     <div className='nav'>
       <ul className='nav-ul'>
-        <p className='logo' onClick={()=>{
+       {!hide &&  <p className='logo' onClick={()=>{
           navigate('/')
         }}>FYP</p>
+      }
         <li className='li-nav'>
             About
         </li>
