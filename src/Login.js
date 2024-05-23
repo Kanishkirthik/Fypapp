@@ -9,7 +9,7 @@ function Login() {
   const cookies=new Cookies()
   let handlefunction=(e)=>{
     e.preventDefault();
-    axios.post('https://fypbackend-13p3.onrender.com/User/Login',{email:email,password:password}).then((response)=>{
+    axios.post('https://fypbackend-13p3.onrender.com/user/Login',{email:email,password:password}).then((response)=>{
     cookies.set("Authentication_Token",response.data.Token,{path:'/'})
     cookies.set("Role",response.data.Role,{path:'/'})
     cookies.set("UserId",response.data.UserId,{path:'/'})
