@@ -6,14 +6,22 @@ function Nav() {
   const cookies=new Cookies()
   let user=cookies.get('UserId')
   let navigate=useNavigate()
-  const [hide,sethide]=useState();
+  const [width,setwidth]=useState();
+  useEffect(()=>{
+    let handle=function(){
+      setwidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handle);
+    return () => window.removeEventListener('resize', handle);
+  },[])
 
   return (
     <div className='nav'>
       <ul className='nav-ul'>
-         <p className='logo' onClick={()=>{
+    {width>425 && <p className='logo' onClick={()=>{
           navigate('/')
         }}>FYP</p>
+}
       
         <li className='li-nav'>
             About
