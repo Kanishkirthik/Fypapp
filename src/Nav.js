@@ -7,17 +7,14 @@ function Nav() {
   let user=cookies.get('UserId')
   let navigate=useNavigate()
   const [hide,sethide]=useState();
-  if (window.innerWidth<988){
-    sethide(true)
-  }
 
   return (
     <div className='nav'>
       <ul className='nav-ul'>
-       {!hide &&  <p className='logo' onClick={()=>{
+         <p className='logo' onClick={()=>{
           navigate('/')
         }}>FYP</p>
-      }
+      
         <li className='li-nav'>
             About
         </li>
