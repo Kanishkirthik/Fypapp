@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import { Cookies } from 'react-cookie';
+import Nav from './Nav'
 function Login() {
   const[email,setemail]=useState('')
   const[password,setPassword]=useState('')
@@ -20,7 +21,8 @@ function Login() {
     })
   }
   return (
-    
+    <>
+    <Nav/>
     <div className='login-row'>
         <form className='login-form' onSubmit={handlefunction}>
             <input type='email' placeholder='UserEmail' onChange={(e)=>setemail(e.target.value)}></input>    
@@ -34,6 +36,7 @@ function Login() {
             <br></br>
         </form>
     </div>
+              </>
   )
 }
 
