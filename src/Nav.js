@@ -59,7 +59,7 @@ function Nav() {
               <ul>
                 <li>{cookies.get('name')}</li>
                 <li>{cookies.get('Role')}</li>
-                <Link to={'/DashBoard'}><li> Go to DashBoard</li></Link>
+{cookies.get('Role')==='Recruiter' && <Link to={'/DashBoard'}><li> Go to DashBoard</li></Link>}
                 <li onClick={()=>{
                   cookies.remove('UserId');
                   cookies.remove('Role');
