@@ -4,9 +4,12 @@ import axios from 'axios';
 import { Cookies } from 'react-cookie';
 import Nav from './Nav'
 function Login() {
+  //store email and Password for login authentication using jwt token as respose  from backend server.
   const[email,setemail]=useState('')
   const[password,setPassword]=useState('')
+  //To navigate to router url based on login response
   const navigate=useNavigate()
+  //manage data and easly accessible and session management
   const cookies=new Cookies()
   let handlefunction=(e)=>{
     e.preventDefault();
@@ -22,7 +25,9 @@ function Login() {
   }
   return (
     <>
+    //Nav Component
     <Nav/>
+    //login form
     <div className='login-row'>
         <form className='login-form' onSubmit={handlefunction}>
             <input type='email' placeholder='UserEmail' onChange={(e)=>setemail(e.target.value)}></input>    
@@ -31,6 +36,7 @@ function Login() {
             <button className='login' type='submit'>Login</button>
             <br></br>
             <p>I Don't have acccount</p> <a onClick={()=>{
+              //navigate to register dont have account to login
               navigate('/Register')
             }}>Register</a>
             <br></br>
