@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Nav from './Nav'
 function Register() {
+  //As Register Component for user account creation
+  //navigate to navigate to another router
   const navigate=useNavigate()
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -13,12 +15,14 @@ function Register() {
   let handlefunction=function(e){
     e.preventDefault()
     axios.post("https://fypbackend-13p3.onrender.com/user/Register",{name:name,email:email,password:password,Role:Role,Companyname:Companyname}).then((res)=>{
+      //After successfully creation of user profile navigate to login
       navigate('/Login');
     }).catch((err)=>console.log(err))
   }
   return (
     <>
     <Nav/>
+    //Form to get data from user for creation
     <div className='login-row'>
     <form className='login-form' onSubmit={handlefunction}>
         <input type='text' placeholder='UserName' onChange={(e)=>setName(e.target.value)}></input>    
@@ -29,15 +33,18 @@ function Register() {
        Normal
       </label>
       <label>
+         //Role to select
       <input type='radio' name='role' value='Recruiter' onChange={(e)=>setRole(e.target.value)} />
       Recruiter
        </label>
+       //Based on role that recuriter contains one extra element form to get company name
         {Role==='Recruiter' && <input type='text' placeholder='Companyname' onChange={(e)=>{
           setCompany(e.target.value)}}></input>}
         <br></br>
         <button className='login' type='submit'>Register</button>
         <br></br>
         <p>I have acccount</p> <a onClick={()=>{
+//user has account alredy to can navigate with click above
           navigate('/Login')
         }}>login</a>
         <br></br>
