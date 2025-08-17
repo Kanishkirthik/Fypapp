@@ -6,11 +6,15 @@ import { useParams } from 'react-router-dom'
 import  axios from 'axios'
 import {Cookies} from 'react-cookie'
 function Home() {
+  //
   const { id } = useParams()
   const cookie=new Cookies()
+  //Get Job data from Backend db with help of usestate hook for statemangement
   const [data, setData] = useState([])
+  //Maintain session of User in cookies
   let user=cookie.get('UserId')
   const [Ds,setDs]=useState([])
+  //Useeffect hook to render async function only once get job data from db
   useEffect(()=>{
     let getNormalData=async function(){
       await axios.get('https://fypbackend-13p3.onrender.com/get').then((res)=>{
@@ -21,6 +25,7 @@ function Home() {
     }
     getNormalData()
   },[])
+  // Get Data of recuiter or User (Normal Person) based on role in db with help of useeffect hook and async function handle callbacks.
   useEffect(()=>{
     let getRecuiter= async function(){
       await axios.get(`https://fypbackend-13p3.onrender.com/Recuiter/get/${user}`,{headers:{
@@ -52,10 +57,13 @@ function Home() {
     console.log(data)
   return (
     <>
+    //  Nav Component 
     <Nav/>
+    //Home div 
     <div className='home'>
         <h3 >Find Your Dream Job</h3>
         <Search/>
+        //This to classify Ui based role of user is normal to seek job there was job post of list card will display bellow
         {cookie.get('Role')!='Recruiter' && <div className='jobs'>
           {Ds.map((d)=>(
           <div className='card'>
@@ -85,6 +93,7 @@ function Home() {
           ))}
         </div>
 }
+//UI list card will display to all user based on upcomming events
 {user && <h3>Up-Coming Events</h3>}
         {data.map((e)=>(
         <div className='Up-Comming'>
@@ -104,10 +113,12 @@ function Home() {
                 </div>
         </div>
         ))}
+        //Job seeker can see apply button
         {cookie.get('Role')!='Recruiter' 
         &&<div className='Recomdedation'>
         </div>
 }
+//Its extra div that contains list of cards normal instruction of coding platforms and challenges 
         <h3>Coding Practice</h3>
         <div className='Coding'>
           <div className='card'>
