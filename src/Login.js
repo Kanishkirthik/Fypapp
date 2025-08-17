@@ -25,9 +25,9 @@ function Login() {
   }
   return (
     <>
-    //Nav Component
+    
     <Nav/>
-    //login form
+    
     <div className='login-row'>
         <form className='login-form' onSubmit={handlefunction}>
             <input type='email' placeholder='UserEmail' onChange={(e)=>setemail(e.target.value)}></input>    
