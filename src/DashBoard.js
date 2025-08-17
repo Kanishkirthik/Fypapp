@@ -4,7 +4,9 @@ import { useState ,useEffect} from 'react'
 import {Cookies} from 'react-cookie'
 import axios from 'axios'
 function DashBoard() {
+  //cookie get user data for session management
   const cookie =new Cookies()
+  //Job data object to store list job to post in backend db
   const[data,setData]=useState({
     'jobTitle':'',
     'jobDescription':'',
@@ -16,9 +18,11 @@ function DashBoard() {
     'status':''
   })
   const[Dataset,setDs]=useState([])
+  //This for updatation of when recuriter want to change details of specfic job post in backend to trigger ui component to display settings
   const[Updation,setUpdation]=useState(false)
 
   let user=cookie.get('UserId')
+  //Handle submit it trigger by onsubmit event listener to handle form submission to create job post.
   let handleSubmit=function(e){
     e.preventDefault();
     axios.post('https://fypbackend-13p3.onrender.com/Recuiter/Create',{Companyname:cookie.get('Companyname'),JobTitle:data.jobTitle,JobDescription:data.jobDescription,Salary:data.salary,Requirement:data.requirement,Experience:data.experience,Location:data.location,Date:data.date,Status:data.status,Userid:cookie.get('UserId')},{headers:{
@@ -31,6 +35,7 @@ function DashBoard() {
       console.log(err)
     })
   }
+  //Handle update it trigger button of specific job card
   let handleUpdate =function(){
     axios.patch(`https://fypbackend-13p3.onrender.com/Recuiter/Update/${user}`,{Companyname:cookie.get('Companyname'),JobTitle:data.jobTitle,JobDescription:data.jobDescription,Salary:data.salary,Requirement:data.requirement,Experience:data.experience,Location:data.location,Date:data.date,Status:data.status,Userid:cookie.get('UserId')},{headers:{
       'Content-Type':'application/json',
@@ -41,6 +46,7 @@ function DashBoard() {
     })
     
   }
+  //to get job datas  based on recuirter that he/she posted it with help of useeffect hook its trigger only once because we haven't pass any array parameters.
   useEffect(()=>{
     let getData=async function(){
     await axios.get(`https://fypbackend-13p3.onrender.com/Recuiter/get/${user}`,{headers:{
@@ -58,13 +64,16 @@ function DashBoard() {
 
   return (
     <>
+    //Nav Bar 
     <Nav/>
     <div className='container'>
         <h3>"Offering opportunities to millions of employees is not just about filling positions; it's about shaping futures"</h3>
         <div className='card'>
 
         </div>
+    
         <div clasName="Dashboard">
+    //Form to submit job post
             <div className='card'>
                 <form className='create' onSubmit={handleSubmit}>
                     <input type='text' value={data.jobTitle} placeholder='Job Title' onChange={(e)=>{
@@ -92,10 +101,12 @@ function DashBoard() {
                     <input type='text' id='status' value={data.status} placeholder='Status' onChange={(e)=>{
                       setData({...data,status:e.target.value})
                     }}></input>
+//if Updatation is true submit button never so and Update button onclik event listener shows it
                     {!Updation && <button class='Create'>Submit</button>}
                     {Updation && <button class='Create' onClick={handleUpdate}>Update</button>}
                 </form>
             </div>
+//Its display list cards of job posts that posted by specific recuiter
 {Dataset.map((e)=>(
 <div className='card'>
   <div className='card2'>
