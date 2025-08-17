@@ -7,8 +7,11 @@ import {BrowserRouter,Routes,Route} from'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import DashBoard from './DashBoard';
+//Create root element of react
 const root = ReactDOM.createRoot(document.getElementById('root'));
+//root element contains method render that we can pass params of component
 root.render(
+  //We are using react router to route url get data back on router so we need pass more params  so react offers mode strict Mode
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
