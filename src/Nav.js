@@ -50,7 +50,7 @@ function Nav() {
             </div>
         </li>
 }
-//Bases on user login/register or profile
+
 { !user ?<li className='li-nav'>
         <a className='login_sig' onClick={()=>{
           navigate('/login')
@@ -64,7 +64,7 @@ function Nav() {
                 <li>{cookies.get('Role')}</li>
 {cookies.get('Role')==='Recruiter' && <Link to={'/DashBoard'}><li> Go to DashBoard</li></Link>}
                 <li onClick={()=>{
-  //logout remove all data from cookies of current user.
+
                   cookies.remove('UserId');
                   cookies.remove('Role');
                   cookies.remove('name');
