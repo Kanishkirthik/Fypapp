@@ -64,7 +64,7 @@ function DashBoard() {
 
   return (
     <>
-    //Nav Bar 
+
     <Nav/>
     <div className='container'>
         <h3>"Offering opportunities to millions of employees is not just about filling positions; it's about shaping futures"</h3>
@@ -73,7 +73,7 @@ function DashBoard() {
         </div>
     
         <div clasName="Dashboard">
-    //Form to submit job post
+
             <div className='card'>
                 <form className='create' onSubmit={handleSubmit}>
                     <input type='text' value={data.jobTitle} placeholder='Job Title' onChange={(e)=>{
@@ -101,12 +101,12 @@ function DashBoard() {
                     <input type='text' id='status' value={data.status} placeholder='Status' onChange={(e)=>{
                       setData({...data,status:e.target.value})
                     }}></input>
-//if Updatation is true submit button never so and Update button onclik event listener shows it
+
                     {!Updation && <button class='Create'>Submit</button>}
                     {Updation && <button class='Create' onClick={handleUpdate}>Update</button>}
                 </form>
             </div>
-//Its display list cards of job posts that posted by specific recuiter
+
 {Dataset.map((e)=>(
 <div className='card'>
   <div className='card2'>
