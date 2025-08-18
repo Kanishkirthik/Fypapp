@@ -22,7 +22,7 @@ function Register() {
   return (
     <>
     <Nav/>
-    //Form to get data from user for creation
+
     <div className='login-row'>
     <form className='login-form' onSubmit={handlefunction}>
         <input type='text' placeholder='UserName' onChange={(e)=>setName(e.target.value)}></input>    
@@ -33,11 +33,11 @@ function Register() {
        Normal
       </label>
       <label>
-         //Role to select
+
       <input type='radio' name='role' value='Recruiter' onChange={(e)=>setRole(e.target.value)} />
       Recruiter
        </label>
-       //Based on role that recuriter contains one extra element form to get company name
+
         {Role==='Recruiter' && <input type='text' placeholder='Companyname' onChange={(e)=>{
           setCompany(e.target.value)}}></input>}
         <br></br>
